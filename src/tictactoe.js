@@ -105,7 +105,7 @@ const playerEmojis = {'X':'🐻','O':'🐼'}
 const hPadding = "‎️‍🔥".repeat(10)
 function logBoard(board) {
     //[null, "X", null].map(el => {if(!el){return " "}else{return el}}).join("|")
-    console.log("-".repeat(50))
+    console.log("🌊".repeat(25))
     let boardStr = hPadding + " 0  1  2 "+hPadding+"\n"
      + board.map((row, index) => 
     hPadding + index.toString() + row.map(el => { if (!el) { return "  " } else { return el } }).join("|") + hPadding )
@@ -113,7 +113,7 @@ function logBoard(board) {
     boardStr = boardStr.replaceAll('X', playerEmojis['X'])
     boardStr = boardStr.replaceAll('O', playerEmojis['O'])
     console.log(boardStr)
-    console.log("-".repeat(50))
+    console.log("🌊".repeat(25))
 }
 
 async function prompt(board, currentPlayer) {
