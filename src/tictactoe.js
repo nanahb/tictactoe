@@ -85,11 +85,8 @@ export function isBoardFull(board) {
     return false
 }
 
-let currentPlayer = 'X';
-let board = createBoard()
-
 const winDecoration = '🎉'.repeat(30)
-function play(row, col) {
+function play(board, row, col, currentPlayer) {
     if (!isValidMove(board, row, col)) {
         console.log(`Invalid move!${row}, ${col}`);
         return;
@@ -101,9 +98,9 @@ function play(row, col) {
         exit()
         return;
     }
-
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
+
+/** Console-only logic */ 
 const playerEmojis = {'X':'🐻','O':'🐼'}
 const hPadding = "‎️‍🔥".repeat(10)
 function logBoard(board) {
@@ -119,9 +116,7 @@ function logBoard(board) {
     console.log("-".repeat(50))
 }
 
-
-
-async function prompt() {
+async function prompt(board, currentPlayer) {
     let r, c
     const rl = readline.createInterface({
         input: process.stdin,
@@ -137,8 +132,9 @@ async function prompt() {
             r = parsed[0]
             c = parsed[1]
             rl.close();
-            play(r, c)
-            prompt()
+            play(board, r, c, currentPlayer)
+            let nextPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            prompt(board, nextPlayer)
         });
     });
     await promise
@@ -146,4 +142,4 @@ async function prompt() {
     console.log(board)
 }
 
-await prompt()
+await prompt(createBoard(), "X")
