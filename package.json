@@ -2,8 +2,8 @@
   "name": "tictactoe",
   "version": "1.0.0",
   "description": "A cool game.",
-  "main": "index.js",
   "scripts": {
+    "start": "react-scripts start --host 0.0.0.0 --port 8080",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
@@ -14,15 +14,32 @@
   "author": "nanahb",
   "license": "ISC",
   "type": "module",
-  "files":[
+  "files": [
     "src"
-  ]
-  ,
+  ],
   "bugs": {
     "url": "https://github.com/nanahb/tictactoe/issues"
   },
-  "homepage": "https://github.com/nanahb/tictactoe#readme",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "homepage": ".",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
