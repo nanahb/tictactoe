@@ -8,7 +8,7 @@ export function createBoard() {
     ];
 }
 
-function isValidMove(board, row, col) {
+export function isValidMove(board, row, col) {
     //row is in range
     if (row >= 0 && row <= 2) {
         // col is in range
@@ -24,14 +24,16 @@ function isValidMove(board, row, col) {
 }
 
 export function updateBoard(board, row, col, symbol) {
+    
     return placeSymbol(board, row, col, symbol)
 }
 
 function placeSymbol(board, row, col, symbol) {
     console.log("Placing")
     if (isValidMove(board, row, col)) {
-        board[row][col] = symbol
-        return board
+        let boardCopy = board.slice() // shallow copy of board
+        boardCopy[row][col] = symbol
+        return boardCopy
     }
 }
 
